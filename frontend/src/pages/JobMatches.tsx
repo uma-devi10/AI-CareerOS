@@ -56,11 +56,11 @@ function JobMatches() {
         }
 
         // Backend URL
-        let url = "http://127.0.0.1:8000/jobs/matches"
+        let url = "https://ai-careeros-api-r7vs.onrender.com/jobs/matches"
 
         // Only send skills when resume exists
         if (resumeSkills.length > 0) {
-          url = `http://127.0.0.1:8000/jobs/matches?skills=${encodeURIComponent(
+          url = `https://ai-careeros-api-r7vs.onrender.com/jobs/matches?skills=${encodeURIComponent(
             resumeSkills.join(",")
           )}`
         }

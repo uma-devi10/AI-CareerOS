@@ -21,7 +21,7 @@ function ResumeAnalysis() {
       formData.append("file", file)
 
       const response = await fetch(
-        "http://127.0.0.1:8000/resume/analyze",
+       "https://ai-careeros-api-r7vs.onrender.com/resume/analyze",
         {
           method: "POST",
           body: formData,

@@ -64,7 +64,7 @@ if (!savedResult) {
 }
         // Get real jobs from backend
         const response = await fetch(
-          "http://127.0.0.1:8000/jobs/matches"
+          "https://ai-careeros-api-r7vs.onrender.com/jobs/matches"
         )
 
         if (!response.ok) {
