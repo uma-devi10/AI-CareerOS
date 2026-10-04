@@ -2,6 +2,7 @@ import {
   BrowserRouter,
   Routes,
   Route,
+  Navigate,
 } from "react-router-dom"
 
 import Login from "./pages/Login"
@@ -15,12 +16,25 @@ import AIInterview from "./pages/AIInterview"
 
 import AppLayout from "./layouts/AppLayout"
 
+
+function ProtectedRoute({ children }: { children: React.ReactNode }) {
+  const token = localStorage.getItem("access_token")
+
+  if (!token) {
+    return <Navigate to="/login" replace />
+  }
+
+  return children
+}
+
+
 function App() {
   return (
     <BrowserRouter>
 
       <Routes>
 
+        {/* Public pages */}
         <Route
           path="/login"
           element={<Login />}
@@ -31,7 +45,15 @@ function App() {
           element={<Register />}
         />
 
-        <Route element={<AppLayout />}>
+
+        {/* Protected pages */}
+        <Route
+          element={
+            <ProtectedRoute>
+              <AppLayout />
+            </ProtectedRoute>
+          }
+        >
 
           <Route
             path="/"
